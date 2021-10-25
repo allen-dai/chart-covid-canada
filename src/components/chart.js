@@ -204,13 +204,13 @@ const Chart = () => {
     let ds = chartDataSet(DATA, VAC_DATA);
 
     setLineChartDS(ds.line);
-    setDisplayLDS(ds.line);
+    setDisplayLDS(JSON.parse(JSON.stringify(ds.line)));
 
     setBarChartDS(ds.bar);
-    setDisplayBDS(ds.bar);
+    setDisplayBDS(JSON.parse(JSON.stringify(ds.bar)));
 
     setVacBarChartDS(ds.vacBar);
-    setDisplayVBDS(ds.vacBar);
+    setDisplayVBDS(JSON.parse(JSON.stringify(ds.vacBar)));
 
     setDisplayDate(DATA.Date);
     setDate(DATA.Date);
@@ -293,7 +293,7 @@ const Chart = () => {
     //Line Chart
     let newLDS = [];
     lineChartDS.forEach((row) => {
-      let newRow = Object.assign({}, row);
+      let newRow = JSON.parse(JSON.stringify(row))
       newRow.data = newRow.data.slice(left, right);
       newLDS.push(newRow);
     });
@@ -302,7 +302,7 @@ const Chart = () => {
     //Bar Chart
     let newBDS = [];
     barChartDS.forEach((row) => {
-      let newRow = Object.assign({}, row);
+      let newRow = JSON.parse(JSON.stringify(row))
       newRow.data = newRow.data.slice(left, right);
       newBDS.push(newRow);
     });
@@ -311,7 +311,7 @@ const Chart = () => {
     //Vacc Bar Chart
     let newVBDS = [];
     vacBarChartDS.forEach((row) => {
-      let newVRow = Object.assign({}, row);
+      let newVRow = JSON.parse(JSON.stringify(row))
       newVRow.data = newVRow.data.slice(left, right);
       newVBDS.push(newVRow);
     });
