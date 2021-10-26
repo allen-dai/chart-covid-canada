@@ -1,7 +1,8 @@
 import * as d3 from "d3";
 import { Line, Bar } from "react-chartjs-2";
 import { useEffect, useState } from "react";
-import { Typography, Grid, Slider, Box, Container } from '@mui/material';
+import { Typography, Grid, Slider, Box, Container } from "@mui/material";
+import ChartAnimation from "./animation/chart";
 
 
 
@@ -329,27 +330,34 @@ const Chart = () => {
   return (
     <>
       <Container maxWidth="lg">
+
         <Grid container maxWidth="lg" spacing={2}>
 
           <Grid item xs={12}>
-            <Typography variant="h5" color="inherit" textAlign="center">
-              Total Confirm Cases
-            </Typography>
-            <Line data={lineChartData} options={lineOptions} />
+            <ChartAnimation position="top">
+              <Typography variant="h5" color="inherit" textAlign="center">
+                Total Confirm Cases
+              </Typography>
+              <Line data={lineChartData} options={lineOptions} />
+            </ChartAnimation>
           </Grid>
 
           <Grid item xs={12} md={6} >
-            <Typography variant="h6" color="inherit" textAlign="center">
-              Daily Cases
-            </Typography>
-            <Bar data={barChartData} options={barOptions} />
+            <ChartAnimation position="left">
+              <Typography variant="h6" color="inherit" textAlign="center">
+                Daily Cases
+              </Typography>
+              <Bar data={barChartData} options={barOptions} />
+            </ChartAnimation>
           </Grid>
 
           <Grid item xs={12} md={6} >
-            <Typography variant="h6" color="inherit" textAlign="center">
-              Vaccination Number (Received at least 1 dose)
-            </Typography>
-            <Bar data={vacBarChartData} options={barOptions} />
+            <ChartAnimation position="right">
+              <Typography variant="h6" color="inherit" textAlign="center">
+                Vaccination Number (Received at least 1 dose)
+              </Typography>
+              <Bar data={vacBarChartData} options={barOptions} />
+            </ChartAnimation>
           </Grid>
 
         </Grid>
