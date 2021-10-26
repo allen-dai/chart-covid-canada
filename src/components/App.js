@@ -2,7 +2,7 @@ import Chart from "./chart";
 function App() {
   return (
     <>
-      <Chart/> 
+      <Chart />
     </>
   );
 }
