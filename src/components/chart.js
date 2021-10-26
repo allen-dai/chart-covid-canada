@@ -141,6 +141,7 @@ const Chart = () => {
   }
 
   function chartDataSet(data, vacData) {
+    let defaultHidden = ["Canada"]
     let lineDS = [];
     let barDS = [];
     let vacBarDS = [];
@@ -151,6 +152,7 @@ const Chart = () => {
         label: region,
         data: caseNum.numConf,
         borderColor: COLOR[region],
+        hidden: defaultHidden.includes(region) ? true : false
       });
 
       barDS.push({
@@ -158,6 +160,7 @@ const Chart = () => {
         data: caseNum.dailyNum,
         backgroundColor: COLOR[region],
         stack: "Stack 0",
+        hidden: defaultHidden.includes(region) ? true : false
       });
 
       vacBarDS.push({
@@ -165,6 +168,7 @@ const Chart = () => {
         data: vacData[region],
         backgroundColor: COLOR[region],
         stack: "Stack 0",
+        hidden: defaultHidden.includes(region) ? true : false
       });
 
     });
