@@ -199,8 +199,8 @@ const Chart = () => {
           let numConf = [];
           let dailyNum = [];
           arr.forEach((row) => {
-            numConf.push(+row.numconf);
-            dailyNum.push(+row.numtoday);
+            numConf.push(+row.totalcases);
+            dailyNum.push(+row.numtotal_last7);
           });
           return { numConf: numConf, dailyNum: dailyNum };
         }
@@ -337,7 +337,7 @@ const Chart = () => {
           <Grid item xs={12} md={6}>
             <ChartAnimation position="left">
               <Typography variant="h6" color="inherit" textAlign="center">
-                Daily Cases
+                Number of Cases Past Week
               </Typography>
               <Bar data={barChartData} options={barOptions} />
             </ChartAnimation>
